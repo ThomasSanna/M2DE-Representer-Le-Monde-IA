@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────
+# Environnement virtuel
+# ─────────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─────────────────────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+share/python-wheels/
+pip-wheel-metadata/
+
+# ─────────────────────────────────────────────────────────────
+# Jupyter / IPython
+# ─────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+get_ipython.py
+
+# ─────────────────────────────────────────────────────────────
+# Tests / Coverage
+# ─────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ─────────────────────────────────────────────────────────────
+# Données générées par les TP (régénérables)
+# ─────────────────────────────────────────────────────────────
+# Bases vectorielles persistées
+*.faiss
+*.pkl
+*.npy
+*.index
+chroma_db/
+chromadb/
+*.chroma/
+
+# Notebooks de cours : sauvegardes Jupyter
+*~
+
+# ─────────────────────────────────────────────────────────────
+# Modèles volumineux (réutilisables / récupérables)
+# ─────────────────────────────────────────────────────────────
+# Embeddings pré-entraînés fastText (114 Mo) :
+# disponibles dans NoteBooks/Modele fastText Pre-entrainé/
+NoteBooks/*.npy
+
+# ─────────────────────────────────────────────────────────────
+# Système / éditeurs / OS
+# ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~

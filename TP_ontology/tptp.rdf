@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.univ-corse.fr/dev/ontologie#"
+     xml:base="http://www.univ-corse.fr/dev/ontologie#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.univ-corse.fr/dev/ontologie"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#maitrise -->
+
+    <owl:ObjectProperty rdf:about="http://www.univ-corse.fr/dev/ontologie#maitrise">
+        <rdfs:domain rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <rdfs:range rdf:resource="http://www.univ-corse.fr/dev/ontologie#Technologie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#travailleSur -->
+
+    <owl:ObjectProperty rdf:about="http://www.univ-corse.fr/dev/ontologie#travailleSur">
+        <rdfs:domain rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <rdfs:range rdf:resource="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#utilise -->
+
+    <owl:ObjectProperty rdf:about="http://www.univ-corse.fr/dev/ontologie#utilise">
+        <rdfs:domain rdf:resource="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+        <rdfs:range rdf:resource="http://www.univ-corse.fr/dev/ontologie#Technologie"/>
+    </owl:ObjectProperty>
+    
+
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#BackEnd -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#BackEnd">
+        <rdfs:subClassOf rdf:resource="http://www.univ-corse.fr/dev/ontologie#Technologie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Data -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#Data">
+        <rdfs:subClassOf rdf:resource="http://www.univ-corse.fr/dev/ontologie#Technologie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Developpeur -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#FrontEnd -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#FrontEnd">
+        <rdfs:subClassOf rdf:resource="http://www.univ-corse.fr/dev/ontologie#Technologie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Projet -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Technologie -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#Technologie"/>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#DeveloppeurFullStack -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#DeveloppeurFullStack">
+        <rdfs:subClassOf rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.univ-corse.fr/dev/ontologie#maitrise"/>
+                        <owl:someValuesFrom rdf:resource="http://www.univ-corse.fr/dev/ontologie#FrontEnd"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.univ-corse.fr/dev/ontologie#maitrise"/>
+                        <owl:someValuesFrom rdf:resource="http://www.univ-corse.fr/dev/ontologie#BackEnd"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#ProjetData -->
+
+    <owl:Class rdf:about="http://www.univ-corse.fr/dev/ontologie#ProjetData">
+        <rdfs:subClassOf rdf:resource="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.univ-corse.fr/dev/ontologie#utilise"/>
+                        <owl:someValuesFrom rdf:resource="http://www.univ-corse.fr/dev/ontologie#Data"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Dialed -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Dialed">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+        <utilise rdf:resource="http://www.univ-corse.fr/dev/ontologie#Vue"/>
+        <utilise rdf:resource="http://www.univ-corse.fr/dev/ontologie#PostgreSQL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Fred -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Fred">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#React"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#Spring"/>
+        <travailleSur rdf:resource="http://www.univ-corse.fr/dev/ontologie#WikiMaster"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Healthly -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Healthly">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+        <utilise rdf:resource="http://www.univ-corse.fr/dev/ontologie#NodeJS"/>
+        <utilise rdf:resource="http://www.univ-corse.fr/dev/ontologie#MongoDB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Michel -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Michel">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#Vue"/>
+        <travailleSur rdf:resource="http://www.univ-corse.fr/dev/ontologie#Dialed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#MongoDB -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#MongoDB">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#NodeJS -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#NodeJS">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#BackEnd"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#PetruSantu -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#PetruSantu">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#NodeJS"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#PostgreSQL"/>
+        <travailleSur rdf:resource="http://www.univ-corse.fr/dev/ontologie#Healthly"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#PostgreSQL -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#PostgreSQL">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Data"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#React -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#React">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#FrontEnd"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Spring -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Spring">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#BackEnd"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Ugo -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Ugo">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Developpeur"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#React"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#NodeJS"/>
+        <maitrise rdf:resource="http://www.univ-corse.fr/dev/ontologie#MongoDB"/>
+        <travailleSur rdf:resource="http://www.univ-corse.fr/dev/ontologie#WikiMaster"/>
+        <travailleSur rdf:resource="http://www.univ-corse.fr/dev/ontologie#Healthly"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#Vue -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#Vue">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#FrontEnd"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univ-corse.fr/dev/ontologie#WikiMaster -->
+
+    <owl:NamedIndividual rdf:about="http://www.univ-corse.fr/dev/ontologie#WikiMaster">
+        <rdf:type rdf:resource="http://www.univ-corse.fr/dev/ontologie#Projet"/>
+        <utilise rdf:resource="http://www.univ-corse.fr/dev/ontologie#React"/>
+        <utilise rdf:resource="http://www.univ-corse.fr/dev/ontologie#Spring"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

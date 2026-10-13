@@ -1,0 +1,33 @@
+# Environnement de cours M2DE - TP embeddings / BD vectorielle
+# Python 3.12 - installer avec :
+#   uv venv --python 3.12 .venv
+#   uv pip install -r requirements.txt
+# (ou : python -m venv .venv && .venv\Scripts\python -m pip install -r requirements.txt)
+
+# --- Contrainte imposée par le cours ---
+numpy>=1.26,<2
+
+# --- Numerique / data / visualisation ---
+pandas
+matplotlib
+scipy
+scikit-learn
+
+# --- TP1 : embeddings statiques ---
+gensim
+
+# --- TP2 : transformers / sentence-transformers ---
+# Versions figees : transformers v5 a retire les tokenizers "lents"
+# (CamembertTokenizer) utilises par TP2.
+torch
+transformers>=4.40,<5
+sentencepiece
+sentence-transformers>=3.0,<6
+
+# --- TP3 / TP4 : BD vectorielles ---
+faiss-cpu
+chromadb
+
+# --- Jupyter ---
+notebook
+ipykernel

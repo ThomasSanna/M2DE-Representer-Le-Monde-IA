@@ -1,0 +1,75 @@
+https://udcpp.sharepoint.com/:w:/r/sites/M2DFS-DE-RAGEmbeddings/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7Bc67ab1ad-7185-4e4e-ad8e-29687003f2bc%7D&wdExp=TEAMS-TREATMENT&web=1
+
+Interrogation de la base de connaissance avec DL Query
+Exprimez les requêtes suivantes :
+a) Lister tous les noms des doctorants
+> Doctorants
+b) Lister les personnes affiliées à l'université de corse
+> affilieA value univ-corse
+c) Lister les doctorants qui par5cipent à un projet
+> Doctorant and (travailleSur some Projet)
+d) Lister les enseignants qui sont aussi encadrants
+> Encadrant
+e) Les projets dirigés par bob
+> inverse dirige value bob
+f) Les doctorants encadrés par bob
+> inverse encadre value bob
+> estEncadrePar value bob
+
+Exprimez les requêtes précédentes en SPARQL
+a) Lister tous les noms des doctorants
+PREFIX : <http://www.univ-corse.fr/ontologies/ontocampus#>
+
+SELECT ?x WHERE {
+    ?x a :Doctorant
+}
+
+b) Lister les titulaires affiliées à l'université de corse
+SELECT ?x WHERE {
+    ?x a :Titulaire .
+    ?x :affilieA :univ-corse
+}
+
+c) Lister les doctorants qui participent à un projet
+SELECT ?x WHERE {
+    ?x a :Doctorant .
+    ?x :travailleSur ?y .
+    ?y a :Projet
+}
+
+d) Lister les titulaires qui sont aussi encadrants
+SELECT ?x WHERE {
+    ?x a :Encadrant .
+    ?x a :Titulaire
+}
+
+e) Les projets dirigés par bob
+SELECT ?x WHERE {
+    ?x a :Projet .
+    :bob :dirige ?x
+}
+
+f) Les doctorants encadrés par bob
+SELECT ?x WHERE {
+    ?x a :Doctorant .
+    :bob :encadre ?x
+}
+
+g) Les doctorants qui n'ont pas encore soutenu
+SELECT ?doctorant
+WHERE {
+  ?doctorant a :Doctorant .
+  ?doctorant :statutThese ?statut .
+  FILTER (?statut = "en cours")
+}
+
+h) Les titulaires qui n'encadrent pas lucas
+SELECT ?x
+WHERE {
+  ?x a :Titulaire .
+  ?x :encadre ?y .
+  ?y a :Doctorant .
+  FILTER NOT EXISTS {
+    ?x :encadre :lucas
+  }
+}

@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.univ-corse.fr/ontologies/ontocampus#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.univ-corse.fr/ontologies/ontocampus#">
+    <Prefix name="" IRI="http://www.semanticweb.org/vittori_e/ontologies/2025/6/untitled-ontology-18/"/>
+    <Prefix name="ns0" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="ontocampus" IRI="http://www.univ-corse.fr/ontologies/ontocampus#"/>
+    <Declaration>
+        <Class IRI="Doctorant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Encadrant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="EncadrantExperimente"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Enseignant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Equipe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Personne"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Projet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ResponsableDeProjet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Titulaire"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Universite"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="affilieA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="dirige"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="encadre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="estEncadrePar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="estMembreDe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="travailleSur"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="nom"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="nomUniv"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="statutThese"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="alice"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="bob"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="equipeIA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="louise"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="lucas"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="lucie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="marie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="paul"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="projetML"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="projetNeuroSymbolique"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="sara"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="univ-corse"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="Encadrant"/>
+        <ObjectIntersectionOf>
+            <Class IRI="Enseignant"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="encadre"/>
+                <Class IRI="Doctorant"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="EncadrantExperimente"/>
+        <ObjectIntersectionOf>
+            <Class IRI="Encadrant"/>
+            <ObjectMinCardinality cardinality="3">
+                <ObjectProperty IRI="encadre"/>
+                <Class IRI="Doctorant"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="ResponsableDeProjet"/>
+        <ObjectIntersectionOf>
+            <Class IRI="Titulaire"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="dirige"/>
+                <Class IRI="Projet"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="Doctorant"/>
+        <Class IRI="Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Encadrant"/>
+        <Class IRI="Enseignant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="EncadrantExperimente"/>
+        <Class IRI="Encadrant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Enseignant"/>
+        <Class IRI="Personne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ResponsableDeProjet"/>
+        <Class IRI="Titulaire"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Titulaire"/>
+        <Class IRI="Enseignant"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="Titulaire"/>
+        <NamedIndividual IRI="alice"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Titulaire"/>
+        <NamedIndividual IRI="bob"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Equipe"/>
+        <NamedIndividual IRI="equipeIA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Doctorant"/>
+        <NamedIndividual IRI="louise"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Doctorant"/>
+        <NamedIndividual IRI="lucas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Enseignant"/>
+        <NamedIndividual IRI="lucas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Doctorant"/>
+        <NamedIndividual IRI="lucie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Personne"/>
+        <NamedIndividual IRI="marie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Doctorant"/>
+        <NamedIndividual IRI="paul"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Projet"/>
+        <NamedIndividual IRI="projetML"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Projet"/>
+        <NamedIndividual IRI="projetNeuroSymbolique"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Doctorant"/>
+        <NamedIndividual IRI="sara"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Enseignant"/>
+        <NamedIndividual IRI="sara"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Universite"/>
+        <NamedIndividual IRI="univ-corse"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="louise"/>
+        <NamedIndividual IRI="lucas"/>
+        <NamedIndividual IRI="lucie"/>
+        <NamedIndividual IRI="paul"/>
+        <NamedIndividual IRI="sara"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="affilieA"/>
+        <NamedIndividual IRI="alice"/>
+        <NamedIndividual IRI="univ-corse"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="dirige"/>
+        <NamedIndividual IRI="alice"/>
+        <NamedIndividual IRI="projetNeuroSymbolique"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="encadre"/>
+        <NamedIndividual IRI="alice"/>
+        <NamedIndividual IRI="louise"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="encadre"/>
+        <NamedIndividual IRI="alice"/>
+        <NamedIndividual IRI="lucie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="encadre"/>
+        <NamedIndividual IRI="alice"/>
+        <NamedIndividual IRI="paul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="estMembreDe"/>
+        <NamedIndividual IRI="alice"/>
+        <NamedIndividual IRI="equipeIA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="affilieA"/>
+        <NamedIndividual IRI="bob"/>
+        <NamedIndividual IRI="univ-corse"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="dirige"/>
+        <NamedIndividual IRI="bob"/>
+        <NamedIndividual IRI="projetML"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="encadre"/>
+        <NamedIndividual IRI="bob"/>
+        <NamedIndividual IRI="lucas"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="encadre"/>
+        <NamedIndividual IRI="bob"/>
+        <NamedIndividual IRI="sara"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="estMembreDe"/>
+        <NamedIndividual IRI="bob"/>
+        <NamedIndividual IRI="equipeIA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="travailleSur"/>
+        <NamedIndividual IRI="marie"/>
+        <NamedIndividual IRI="projetNeuroSymbolique"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="alice"/>
+        <Literal>alice</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="bob"/>
+        <Literal>bob</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="louise"/>
+        <Literal>Louise</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="lucas"/>
+        <Literal>Lucas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="statutThese"/>
+        <NamedIndividual IRI="lucas"/>
+        <Literal>soutenue</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="lucie"/>
+        <Literal>Lucie</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="paul"/>
+        <Literal>Paul</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="nom"/>
+        <NamedIndividual IRI="sara"/>
+        <Literal>Sara</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="encadre"/>
+        <ObjectProperty IRI="estEncadrePar"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="affilieA"/>
+        <Class IRI="Personne"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="dirige"/>
+        <Class IRI="Titulaire"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="encadre"/>
+        <Class IRI="Enseignant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="estMembreDe"/>
+        <Class IRI="Personne"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="travailleSur"/>
+        <Class IRI="Personne"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="affilieA"/>
+        <Class IRI="Universite"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="dirige"/>
+        <Class IRI="Projet"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="encadre"/>
+        <Class IRI="Doctorant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="estMembreDe"/>
+        <Class IRI="Equipe"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="travailleSur"/>
+        <Class IRI="Projet"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="estEncadrePar"/>
+            <ObjectProperty IRI="affilieA"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="affilieA"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="estEncadrePar"/>
+            <ObjectProperty IRI="dirige"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="travailleSur"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="estEncadrePar"/>
+            <ObjectProperty IRI="estMembreDe"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="estMembreDe"/>
+    </SubObjectPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="nom"/>
+        <Class IRI="Personne"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="nomUniv"/>
+        <Class IRI="Universite"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="statutThese"/>
+        <Class IRI="Doctorant"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="nom"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="nomUniv"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="statutThese"/>
+        <DataOneOf>
+            <Literal>en cours</Literal>
+            <Literal>soutenue</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
